@@ -1,6 +1,32 @@
 // begin with a blank/new order
 var order = '';
 var optionsString = '';
+var types = [
+    "Drink",
+    "Main Food",
+    "Meat",
+    "Sauce", 
+    "Side Order",
+    "Dessert"
+];
+
+var questions = ["What would you like to drink?",
+                "What would you like to eat?",
+                "What meat would you like?",
+                "What sauce would you like?", 
+                "What would you like to drink?", 
+                "What would you like for dessert?"
+];
+
+var optionsList = [
+    ['nothing', 'coke', 'sprite', 'water', 'diet coke'],
+    ['nothing', 'burrito', 'taco', 'quesadilla', 'salad'],
+    ['nothing', 'chicken', 'pork', 'beef'],
+    ['nothing', 'mild', 'medium', 'spicy', 'ay caramba'],
+    ['nothing', 'chips'],
+    ['nothing', 'cookie', 'muffin', 'cake']   
+];
+
 
 
 // build a function to ask questions
@@ -15,7 +41,6 @@ function optionsToAString(options) {
         }
     }
 }
-
 
 function question(type, question, options) {
     optionsToAString(options);
@@ -39,13 +64,12 @@ function question(type, question, options) {
 }
 
 // call the QUESTION function with the order options
-question("Drink", "What would you like to drink?", ['nothing', 'coke', 'sprite', 'water', 'diet coke']);
-question("Main Food", "What would you like to eat?", ['nothing', 'burrito', 'taco', 'quesadilla', 'salad']);
-question("Meat", "What meat would you like?", ['nothing', 'chicken', 'pork', 'beef']);
-question("Sauce", "What sauce would you like?", ['nothing', 'mild', 'medium', 'spicy', 'ay caramba']);
-question("Side Order", "What would you like to drink?", ['nothing', 'chips']);
-question("Dessert", "What would you like to drink?", ['nothing', 'cookie', 'muffin', 'cake']);
-
+var c = 0;
+while (c < questions.length) {
+    
+    question(types[c], questions[c], optionsList[c]);
+    c++;
+}
 
 // output their order
 document.write("<p>You ordered: " + order + "<p>");
